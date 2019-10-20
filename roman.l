@@ -20,5 +20,5 @@ int accumulator = 0;
 "I" {accumulator= accumulator+1;}
 \n {yylval = accumulator; accumulator = 0 ;return NUMBER;}
 \t|" " {} // whitespace
-. {yyerror("syntax error\n");}
+. {yyerror("syntax error\n"); return ERR;}
 %%
