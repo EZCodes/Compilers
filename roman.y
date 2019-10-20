@@ -5,11 +5,12 @@ void yyerror(char *s);
 %}
 
 %token EOL
+%token NUMBER
 
 %%
 
 list:
- | EOL list { printf("%d\n", $2);}
+ | list NUMBER { printf("%d\n", $2);}
  ;
 
 %%

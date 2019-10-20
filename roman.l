@@ -5,7 +5,7 @@ int accumulator = 0;
 %}
 
 %%
-"MC" {accumulator= accumulator+900;}
+"CM" {accumulator= accumulator+900;}
 "CD" {accumulator= accumulator+400;}
 "XC" {accumulator= accumulator+90;}
 "XL" {accumulator= accumulator+40;}
@@ -18,7 +18,7 @@ int accumulator = 0;
 "X" {accumulator= accumulator+10;}
 "V" {accumulator= accumulator+5;}
 "I" {accumulator= accumulator+1;}
-\n {yylval = accumulator; accumulator = 0 ;return EOL;}
+\n {yylval = accumulator; accumulator = 0 ;return NUMBER;}
 \t|" " {} // whitespace
 . {yyerror("syntax error\n");}
 %%
