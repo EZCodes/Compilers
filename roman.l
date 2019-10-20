@@ -1,23 +1,24 @@
 %{
-#include "defs.tab.h"
+#include "roman.tab.h"
 void yyerror(char *s);
+int accumulator = 0;
 %}
 
 %%
-"MC" {return 900;}
-"CD" {return 400;}
-"XC" {return 90;}
-"XL" {return 40;}
-"IX" {return 9;}
-"IV" {return 4;}
-"M" {return 1000;}
-"D" {return 500;}
-"C" {return 100;}
-"L" {return 50;}
-"X" {return 10;}
-"V" {return 5;}
-"I" {return 1;}
-\n {return EOL;}
+"MC" {accumulator= accumulator+900;}
+"CD" {accumulator= accumulator+400;}
+"XC" {accumulator= accumulator+90;}
+"XL" {accumulator= accumulator+40;}
+"IX" {accumulator= accumulator+9;}
+"IV" {accumulator= accumulator+4;}
+"M" {accumulator= accumulator+1000;}
+"D" {accumulator= accumulator+500;}
+"C" {accumulator= accumulator+100;}
+"L" {accumulator= accumulator+50;}
+"X" {accumulator= accumulator+10;}
+"V" {accumulator= accumulator+5;}
+"I" {accumulator= accumulator+1;}
+\n {yylval = accumulator; accumulator = 0 ;return EOL;}
 \t|" " {} // whitespace
-. {yyerror("Unknown Character\n");}
+. {yyerror("syntax error\n");}
 %%
