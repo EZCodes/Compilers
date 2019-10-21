@@ -5,10 +5,10 @@ int accumulator = 0;
 %}
 
 %%
-"CM".+ {yyerror("syntax error\n"); return ERR;}
-"CD".+ {yyerror("syntax error\n"); return ERR;}
-"XC".+ {yyerror("syntax error\n"); return ERR;}
-"XL".+ {yyerror("syntax error\n"); return ERR;}
+"CM"[CDM]+ {yyerror("syntax error\n"); return ERR;}
+"CD"[CMD]+ {yyerror("syntax error\n"); return ERR;}
+"XC"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
+"XL"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
 "IX".+ {yyerror("syntax error\n"); return ERR;}
 "IV".+ {yyerror("syntax error\n"); return ERR;}
 "CM" {accumulator= accumulator+900;}
