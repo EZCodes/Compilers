@@ -5,8 +5,12 @@ int accumulator = 0;
 %}
 
 %%
-[^[MDCLXVI\n]]+[MDCLXVI]* {yyerror("syntax error\n"); return ERR;}
-[MDCLXVI]*[^[MDCLXVI\n]]+ {yyerror("syntax error\n"); return ERR;}
+"CM".+ {yyerror("syntax error\n"); return ERR;}
+"CD".+ {yyerror("syntax error\n"); return ERR;}
+"XC".+ {yyerror("syntax error\n"); return ERR;}
+"XL".+ {yyerror("syntax error\n"); return ERR;}
+"IX".+ {yyerror("syntax error\n"); return ERR;}
+"IV".+ {yyerror("syntax error\n"); return ERR;}
 "CM" {accumulator= accumulator+900;}
 "CD" {accumulator= accumulator+400;}
 "XC" {accumulator= accumulator+90;}
