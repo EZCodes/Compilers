@@ -10,6 +10,12 @@ void yyerror(char *s);
 "XL"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
 "IX"[IVXLCMD]+ {yyerror("syntax error\n"); return ERR;}
 "IV"[IVXLCMD]+ {yyerror("syntax error\n"); return ERR;}
+"I"{5,} {yyerror("syntax error\n"); return ERR;}
+"V"{2,} {yyerror("syntax error\n"); return ERR;}
+"X"{5,} {yyerror("syntax error\n"); return ERR;}
+"L"{2,} {yyerror("syntax error\n"); return ERR;}
+"C"{5,} {yyerror("syntax error\n"); return ERR;}
+"D"{2,} {yyerror("syntax error\n"); return ERR;}
 "CM" {yylval=900; return DIGIT;}
 "CD" {yylval=400; return DIGIT;}
 "XC" {yylval=90; return DIGIT;}
