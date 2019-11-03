@@ -4,18 +4,18 @@ void yyerror(char *s);
 %}
 
 %%
-"CM"[CDM]+ {yyerror("syntax error\n"); return ERR;}
-"CD"[CMD]+ {yyerror("syntax error\n"); return ERR;}
-"XC"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
-"XL"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
-"IX"[IVXLCMD]+ {yyerror("syntax error\n"); return ERR;}
-"IV"[IVXLCMD]+ {yyerror("syntax error\n"); return ERR;}
-"I"{5,} {yyerror("syntax error\n"); return ERR;}
-"V"{2,} {yyerror("syntax error\n"); return ERR;}
-"X"{5,} {yyerror("syntax error\n"); return ERR;}
-"L"{2,} {yyerror("syntax error\n"); return ERR;}
-"C"{5,} {yyerror("syntax error\n"); return ERR;}
-"D"{2,} {yyerror("syntax error\n"); return ERR;}
+"CM"[CDM]+ {yyerror("syntax error"); return ERR;}
+"CD"[CMD]+ {yyerror("syntax error"); return ERR;}
+"XC"[XLCMD]+ {yyerror("syntax error"); return ERR;}
+"XL"[XLCMD]+ {yyerror("syntax error"); return ERR;}
+"IX"[IVXLCMD]+ {yyerror("syntax error"); return ERR;}
+"IV"[IVXLCMD]+ {yyerror("syntax error"); return ERR;}
+"I"{5,} {yyerror("syntax error"); return ERR;}
+"V"{2,} {yyerror("syntax error"); return ERR;}
+"X"{5,} {yyerror("syntax error"); return ERR;}
+"L"{2,} {yyerror("syntax error"); return ERR;}
+"C"{5,} {yyerror("syntax error"); return ERR;}
+"D"{2,} {yyerror("syntax error"); return ERR;}
 "CM" {yylval=900; return DIGIT;}
 "CD" {yylval=400; return DIGIT;}
 "XC" {yylval=90; return DIGIT;}
@@ -37,5 +37,5 @@ void yyerror(char *s);
 "}" {return LB;}
 \n {return EOL;}
 \t|" " {} // whitespace
-. {yyerror("syntax error\n"); return ERR;}
+. {yyerror("syntax error"); return ERR;}
 %%

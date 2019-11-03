@@ -84,5 +84,5 @@ int main()
 
 void yyerror(char *s)
 {
-  printf("%s",s);
+  printf("%s\n",s);
 }
