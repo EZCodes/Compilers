@@ -8,8 +8,8 @@ void yyerror(char *s);
 "CD"[CMD]+ {yyerror("syntax error\n"); return ERR;}
 "XC"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
 "XL"[XLCMD]+ {yyerror("syntax error\n"); return ERR;}
-"IX".+ {yyerror("syntax error\n"); return ERR;}
-"IV".+ {yyerror("syntax error\n"); return ERR;}
+"IX"[IVXLCMD]+ {yyerror("syntax error\n"); return ERR;}
+"IV"[IVXLCMD]+ {yyerror("syntax error\n"); return ERR;}
 "CM" {yylval=900; return DIGIT;}
 "CD" {yylval=400; return DIGIT;}
 "XC" {yylval=90; return DIGIT;}
