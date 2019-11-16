@@ -15,7 +15,7 @@ int * variables;
 %%
 
 calc:
- | calc exp EOS { printf("Done.\n");}
+ | calc exp EOS { }
  | calc ERR {return 0;}
  | calc PRINT VAR EOS { printf("%d\n", variables[$3]);} 
  | calc VAR ASSIGN exp EOS { variables[$2] = $4;}
@@ -32,7 +32,8 @@ hp_exp : term
  ;
  
 term : NUMBER
- | SUB NUMBER | SUB VAR{ $$ = 0-variables[$2];}
+ | SUB NUMBER  { $$ = 0 - $2;}
+ | SUB VAR { $$ = 0 - variables[$2];}
  | VAR { $$ = variables[$1];}
  ;
 
